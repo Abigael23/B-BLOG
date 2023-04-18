@@ -41,7 +41,12 @@
     </div>
     <p class="text-primary">Image <input onchange="choosefile()" type="file" name="" id="file"></p>
     <img id="myimg" src="" alt=""> <br>
-    <textarea name="" id="" cols="30" rows="10" class="text-danger"></textarea>
+    <div class="divbtn">
+        <button class="btn btn-primary">Likes</button>
+        <button class="btn btn-primary">Dislikes</button>
+        <button class="btn btn-primary">Add</button>
+    </div>
+    <textarea name="" id="text" cols="30" rows="10" class="text-danger"></textarea>
    <br> <button class="btn btn-primary w-20" onclick="post()">Post</button>
     </div>
    </main> 
@@ -77,4 +82,8 @@ function choosefile() {
     // window.location.href = "loginpg.html"
 // }
 
+let text =[]
+function post() {
+    text.push();
+}
 </script>

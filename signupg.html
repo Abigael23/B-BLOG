@@ -35,17 +35,36 @@
     let username = document.getElementById("username")
     let email = document.getElementById("email")
     let password2 = document.getElementById("password2")
+    let phonenumber = document.getElementById("phonenumber")
+    let confirmpassword =document.getElementById("confirmpassword")
     let allUser = JSON.parse(localStorage.getItem("myUsers"));
     console.log(allUser);
+    let array = []
+    function signup(ev) {
+        let user = {
+            Username: username.value,
+            Email: email.value,
+            // Phonenumber: phonenumber.value,
+            Password: password2.value,
+            // Confirmpassword: confirmpassword.value
+        }
+        // localStorage.setItem("loggedUser", JSON.stringify(user))
+        // window.location.href = "SignUp.html"
+        // user.push();
+        // console.log(user);
 
-    function login(ev) {
+        // if (email.value) {
+            
+        // } else {
+            
+        // }
         ev.preventDefault();
         let found = allUser.find((el)=> el.email == email.value);
         console.log(found);
-        if(found.email != email.value || found.password !== password2.value ){
+        if(found.username !=username || found.email != email.value || found.password !== password2.value ){
             alert("User information incorrect")
         }else{
-            localStorage.setItem("CU", JSON.stringify(found))
+            localStorage.setItem("CU", JSON.stringify(user))
             window.location.href = "login.html"
         }
     }
