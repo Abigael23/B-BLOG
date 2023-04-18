@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="C:\Users\USER\Desktop\Javascript\B-BLOG\dashboardpg.css">
     <link rel="stylesheet" href="../../bootstrap-5.2.3-dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -38,7 +39,8 @@
     <div>
         <p class="text-primary">Title <input type="text"></p>
     </div>
-    <p class="text-primary">Image <input type="file" name="" id=""></p>
+    <p class="text-primary">Image <input onchange="choosefile()" type="file" name="" id="file"></p>
+    <img id="myimg" src="" alt=""> <br>
     <textarea name="" id="" cols="30" rows="10" class="text-danger"></textarea>
    <br> <button class="btn btn-primary w-20" onclick="post()">Post</button>
     </div>
@@ -47,17 +49,32 @@
 </html>
 
 <script>
-let currentUser = JSON.parse(localStorage.getItem("CU"));
-let username = document.getElementById("username");
-console.log(currentUser);
-if(!currentUser){
-    // window.location.href = "loginpg.html"
-}
-username.innerHTML = currentUser.user;
 
-function logout() {
-    localStorage.removeItem("CU")
+function choosefile() {
+        let reader = new FileReader()
+        let fileData = document.getElementById("file").files[0];
+        console.log(fileData);
+        reader.addEventListener("load", (e)=>{
+            console.log(e.target.result);
+            myimg.src = e.target.result;
+
+        })
+        if (fileData) {
+            let myUrl = reader.readAsDataURL(fileData)
+            console.log(myUrl);
+        }
+    }
+// let currentUser = JSON.parse(localStorage.getItem("CU"));
+// let username = document.getElementById("username");
+// console.log(currentUser);
+// if(!currentUser){
     // window.location.href = "loginpg.html"
-}
+// }
+// username.innerHTML = currentUser.user;
+
+// function logout() {
+//     localStorage.removeItem("CU")
+    // window.location.href = "loginpg.html"
+// }
 
 </script>
