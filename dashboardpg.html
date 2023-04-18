@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <main>
+    <nav>
+        <a href="">Logo</a>
+        <ul>
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>Welcome to your dashboard <span id=""></span></h1>
+   </main> 
+</body>
+</html>
+
+<script>
+let currentUser = JSON.parse(localStorage.getItem("CU"))
+let username = document.getElementById("username")
+console.log(currentUser);
+if(!currentUser){
+    window.location.href = "login.html"
+}
+username.innerHTML = currentUser.user;
+
+</script>
