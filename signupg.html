@@ -34,6 +34,20 @@
 <script>
     let username = document.getElementById("username")
     let email = document.getElementById("email")
-    let pass = document.getElementById("pass")
+    let password2 = document.getElementById("password2")
+    let allUser = JSON.parse(localStorage.getItem("myUsers"));
+    console.log(allUser);
+
+    function login(ev) {
+        ev.preventDefault();
+        let found = allUser.find((el)=> el.email == email.value);
+        console.log(found);
+        if(found.email != email.value || found.password !== password2.value ){
+            alert("User information incorrect")
+        }else{
+            localStorage.setItem("CU", JSON.stringify(found))
+            window.location.href = "login.html"
+        }
+    }
 
 </script>
