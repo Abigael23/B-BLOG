@@ -29,31 +29,16 @@
 <script>
     let email = document.getElementById("email");
     let password1 = document.getElementById("password1");
-    let allUser = JSON.parse(localStorage.getItem("myUsers"));
-    // let found = allUser.find((el)=> el.email == email.value);
-    console.log(allUser);
+    let registeredUser = JSON.parse(localStorage.getItem("users"));
 
-    // function login(event) {
+    function login(ev) {
+        ev.preventDefault();
 
-    //     event.preventDefault();
-    //     let found = allUser.find((el)=> el.email == email.value);
-    //     console.log(found);
-    //     if(found.email != email.value || found.password !== password1.value ){
-    //         alert("User information incorrect")
-    //     }else{
-    //         localStorage.setItem("CU", JSON.stringify(found))
-    //         window.location.href = "dashboardpg.html"
-    //     }
-    // }
-
-    function login(params) {
-        if (email == email.value && password1 == password1.value) {
-            alert("Users information correct")
-            Window.location.href = "signupg.html"
-        } else if(email != email.value && password1 != password1.value) {
-            alert("User information incorrect")
-        } else if (email != email.value || password1 != password1.value) {
-            alert("User information incorrect")   
-        }
+        let authorizedUser = registeredUser.find((element) => element.Email === email.value);
+        console.log(authorizedUser);
+        
     }
+   
+
+   
 </script>
